@@ -1,14 +1,14 @@
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
-from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import PromptTemplate
+from langchain_groq import ChatGroq
 
 load_dotenv()
 
 # Simple one-line prompt
 prompt = PromptTemplate.from_template("{question}")
 
-model = ChatOpenAI()
+model = ChatGroq(model="llama-3.3-70b-versatile")
 parser = StrOutputParser()
 
 # Chain: prompt → model → parser
